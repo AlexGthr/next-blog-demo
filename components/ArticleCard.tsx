@@ -43,7 +43,7 @@ const ArticleCard:React.FC<ArticleCardProps> = ({ article }) => {
       <p className='mb-2'>Le {formatDate(article.createdAt)}</p>
 
       {/* Button voir plus */}
-      <Button  href="/{article.id}" label="Lire plus.."/>
+      <Button  href={`article/${article.id}`} label="Lire plus.."/>
     </div>
   </div>
   )

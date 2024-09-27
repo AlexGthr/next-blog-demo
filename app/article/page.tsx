@@ -3,7 +3,9 @@
 import ArticleCard from '@/components/ArticleCard'
 import Button from '@/components/Button'
 import { create } from 'domain'
+import { link } from 'fs'
 import { redirect } from 'next/dist/server/api-utils'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 const ArticlePage = () => {
@@ -44,8 +46,10 @@ const ArticlePage = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {/* Liste des articles */}
         {articles.map((article) => (
-            // J'importe mon components ArticleCard en définissant la valeur de la propriété article avec l'objet article
+          <Link key={article.id} href={`article/${article.id}`}>
             <ArticleCard article={article} />
+          </Link>
+            // J'importe mon components ArticleCard en définissant la valeur de la propriété article avec l'objet article
           ))}
           </div>
     </>
