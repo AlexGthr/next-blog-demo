@@ -32,6 +32,15 @@ const ArticleDetailPage = ({ params }: {params: {articleId: string}}) => {
 
       <p>{ article?.text }</p>
 
+      <div className='m-5'>
+        {article?.comments.map((commentArticle: CommentType) => (
+          <div key={commentArticle.id} className='m-2'>
+            <p>{commentArticle.userId}</p>
+            <p>{commentArticle.text}</p>
+          </div>
+        ))}
+      </div>
+
       <Button href="/article" label="Retour" />
     </div>
   )
